@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kakaovx.batchstat.reader.domain.mapper.BoardMapper">
+    <select id="selectBoard" resultType="com.kakaovx.batchstat.reader.domain.vo.BoardVo">
+        select *
+        from board
+        order by id
+        limit #{_skiprows}, #{_pagesize}
+    </select>
+
+    <insert id="insertBoard" parameterType="com.kakaovx.batchstat.reader.domain.vo.BoardStatisticsVo">
+        INSERT INTO board_statistics
+        (name)
+        VALUES(#{name})
+    </insert>
+</mapper>

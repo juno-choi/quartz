@@ -1,0 +1,25 @@
+spring:
+  profiles:
+    active: ${server.profile:local}
+  batch:
+    job:
+      name: ${job.name:NONE}
+logging:
+  pattern:
+    console: "[%d{HH:mm:ss.SSS}][%-5level][%logger.%method:line%line] - %msg%n"
+  level:
+    root: info
+    com.kakaovx.batchstat: debug
+
+
+--- # local
+spring:
+  config:
+    activate:
+      on-profile: local
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${db.url:jdbc:mysql://localhost:3306/golf}
+    username: ${db.username:golf}
+    password: ${db.password:kakaovx}
